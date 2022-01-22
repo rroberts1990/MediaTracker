@@ -10,5 +10,8 @@ sql_templates = {
         to_do integer,
         rating integer,
         date_done text
-        """
+        """,
+    "insert_record":
+    """INSERT INTO ({columns})
+        VALUES ({values})"""
 }

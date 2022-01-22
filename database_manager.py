@@ -4,9 +4,11 @@ from config_files.sql_templates import sql_templates
 
 class DatabaseManager:
     """Manage interaction with media database in sqllite."""
-    def __init__(self, name, columns):
+    def __init__(self, name, columns, column_types):
         self.name = name
         self.columns = columns
+        self.column_types = column_types
+        self.conn, self.cursor = self.connect_sqllite()
 
     def connect_sqllite(self):
         """create connection to sqllite database"""
@@ -19,6 +21,11 @@ class DatabaseManager:
         return conn, cursor
 
     def create_table(self):
-        conn, cursor = self.connect_sqllite()
-        cursor.execute(sql_templates["create_table"])
+        self.cursor.execute(sql_templates["create_table"])
+
+    def insert_record(self, values):
+        insert_statement = sql_templates["insert_record"].format(
+            *self.columns, *values)
+        self.cursor.execute(insert_statement)
+
 
