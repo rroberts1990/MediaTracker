@@ -15,3 +15,5 @@ RUN \
     pip3 install --upgrade pip && \
     pip3 install wheel setuptools && \
     pip3 install -r requirements.txt
+
+ENV FLASK_APP=front_end.py
