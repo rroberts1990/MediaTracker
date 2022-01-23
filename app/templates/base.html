@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      {% if title %}
+      <meta charset="UTF-8">
+      <title>{{ title }} - MediaTracker</title>
+      {% else %}
+      <title>Welcome to your MediaTracker!</title>
+      {% endif %}
+  </head>
+  <body>
+    <div>MediaTracker: <a href="/index">Home</a></div>
+    <hr>
+      {% block content %}{% endblock %}
+  </body>
+</html>

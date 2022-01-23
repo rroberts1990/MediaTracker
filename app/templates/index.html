@@ -1,14 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-      {% if title %}
-      <meta charset="UTF-8">
-      <title>{{ title }} - MediaTracker</title>
-      {% else %}
-      <title>Welcome to your MediaTracker!</title>
-      {% endif %}
-  </head>
-  <body>
-    <h1>Hello, {{user.username }}!</h1>
-  </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <table id="data" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Release_Date</th>
+            <th>Read</th>
+            <th>Rating</th>
+            <th>Complete_Date</th>
+            <th>Tags</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+                <tr>
+                    <td>{{ post['record'].title }}</td>
+                    <td>{{ post['record'].author }}</td>
+                    <td>{{ post['record'].genre }}</td>
+                    <td>{{ post['record'].release_date }}</td>
+                    <td>{{ post['record'].read }}</td>
+                    <td>{{ post['record'].rating }}</td>
+                    <td>{{ post['record'].complete_date }}</td>
+                    <td>{{ post['record'].tags }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
