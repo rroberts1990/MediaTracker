@@ -18,7 +18,7 @@ RUN \
     pip3 install wheel setuptools && \
     pip3 install -r requirements.txt
 
-ENV FLASK_APP=front_end.py
+ENV FLASK_APP=media_tracker.py
 ENV SECRET_KEY=my-secret-key
 ENV DATABASE_URL=database-url
 

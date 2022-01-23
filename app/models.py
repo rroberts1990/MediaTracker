@@ -18,7 +18,7 @@ class Book(db.Model):
     publish_date = db.Column(db.Date, index=True)
     read = db.Column(db.Boolean)
     rating = db.Column(db.Integer, index=True)
-    complete_date = db.Column(db.Date)
+    complete_date = db.Column(db.Date, index=True)
     tags = db.Column(db.String(128))
 
     def __repr__(self):
