@@ -17,3 +17,4 @@ RUN \
     pip3 install -r requirements.txt
 
 ENV FLASK_APP=front_end.py
+EXPOSE 5000
