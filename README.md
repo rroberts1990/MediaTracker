@@ -14,3 +14,10 @@ Will have options to display:
 - Charts showing things such as genre preferences aggregated by media or broken down
 - Things you want to read or watch or play
 - Eventually maybe suggest things based on others preferences?
+
+
+###Ideas
+- Store every users data on their own local machine, no need to host databases remotely.
+- Use IMDB API for movies and tv shows where you can click on an actor in a movie in your list and it will automatically
+- open a list of all their movies
+

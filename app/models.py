@@ -8,3 +8,18 @@ class User(db.Model):
 
     def __repr__(self):
         return f'<User {self.username}>'
+
+
+class Book(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(120))
+    author = db.Column(db.String(120))
+    genre = db.Column(db.String(120))
+    publish_date = db.Column(db.Date, index=True)
+    read = db.Column(db.Boolean)
+    rating = db.Column(db.Integer, index=True)
+    complete_date = db.Column(db.Date)
+    tags = db.Column(db.String(128))
+
+    def __repr__(self):
+        return f'<Book {self.title}>'
