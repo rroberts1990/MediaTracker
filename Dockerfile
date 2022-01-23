@@ -2,7 +2,7 @@ FROM ubuntu:latest
 LABEL maintainer="rroberts"
 
 COPY . /opt/StockTracker/
-RUN chmod +x boot.sh
+#RUN chmod +x boot.sh
 
 WORKDIR /opt/StockTracker/
 
@@ -23,4 +23,4 @@ ENV SECRET_KEY=my-secret-key
 ENV DATABASE_URL=database-url
 
 EXPOSE 5000
-ENTRYPOINT ["./boot.sh"]
+#ENTRYPOINT ["./boot.sh"]
