@@ -4,10 +4,11 @@ sql_templates = {
         """
     CREATE TABLE IF NOT EXISTS books (
         id integer PRIMARY KEY,
-        genre text NOT NULL,
-        title text,
+        title text NOT NULL,
+        author text NOT NULL,
+        genre textL,
         release_date text,
-        to_read integer,
+        read integer default 0 NOT NULL,
         rating integer,
         date_complete text,
         tags text
