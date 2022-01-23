@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, url_for
 from collections import namedtuple
 from app.forms import LoginForm
 
-Book = namedtuple('Book', 'title author genre release_date read rating complete_date tags')
+Book = namedtuple('Book', 'title author genre publish_date read rating complete_date tags')
 
 @app.route('/')
 @app.route('/index')

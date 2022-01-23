@@ -17,4 +17,6 @@ RUN \
     pip3 install -r requirements.txt
 
 ENV FLASK_APP=front_end.py
+ENV SECRET_KEY=my-secret-key
+ENV DATABASE_URL=database-url
 EXPOSE 5000
