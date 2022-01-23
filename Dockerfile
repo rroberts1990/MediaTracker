@@ -2,6 +2,8 @@ FROM ubuntu:latest
 LABEL maintainer="rroberts"
 
 COPY . /opt/StockTracker/
+RUN chmod +x boot.sh
+
 WORKDIR /opt/StockTracker/
 
 # Install Python
@@ -19,4 +21,6 @@ RUN \
 ENV FLASK_APP=front_end.py
 ENV SECRET_KEY=my-secret-key
 ENV DATABASE_URL=database-url
+
 EXPOSE 5000
+ENTRYPOINT ["./boot.sh"]
