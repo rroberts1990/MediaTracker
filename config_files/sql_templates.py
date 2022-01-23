@@ -12,7 +12,7 @@ sql_templates = {
         date_complete text,
         tags text
         """,
-    "create_table_movies":
+    "create_table_screen":
     """
     CREATE TABLE IF NOT EXISTS {screen} (
         id integer PRIMARY KEY,
@@ -23,6 +23,19 @@ sql_templates = {
         my_rating integer,
         rt_critics integer,
         rt_audience integer,
+        date_complete text,
+        tags text
+        """,
+    "create_table_game":
+    """
+    CREATE TABLE IF NOT EXISTS games (
+        id integer PRIMARY KEY,
+        genre text NOT NULL,
+        title text,
+        platform text,
+        release_date text,
+        to_play integer,
+        my_rating integer,
         date_complete text,
         tags text
         """,
