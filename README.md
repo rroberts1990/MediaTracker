@@ -18,6 +18,6 @@ Will have options to display:
 
 ###Ideas
 - Store every users data on their own local machine, no need to host databases remotely.
-- Use IMDB API for movies and tv shows where you can click on an actor in a movie in your list and it will automatically
-- open a list of all their movies
-
+- Use IMDB API for movies and tv shows where you can click on an actor in a movie in your list and it will automatically open a list of all their movies
+- Social aspect of sharing and recommending media between users
+- 
