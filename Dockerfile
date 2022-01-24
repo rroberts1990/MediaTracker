@@ -20,7 +20,7 @@ RUN \
 
 ENV FLASK_APP=media_tracker.py
 ENV SECRET_KEY=my-secret-key
-ENV DATABASE_URL=database-url
+ENV DATABASE_URL=sqlite:///mediatracker.db
 
 EXPOSE 5000
 #ENTRYPOINT ["./boot.sh"]
