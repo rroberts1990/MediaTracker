@@ -5,6 +5,7 @@ COPY . /opt/StockTracker/
 #RUN chmod +x boot.sh
 
 WORKDIR /opt/StockTracker/
+RUN mkdir /db
 
 # Install Python
 RUN \
