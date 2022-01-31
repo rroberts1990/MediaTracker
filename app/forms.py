@@ -53,7 +53,7 @@ class AddMovieForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     genre = StringField('Genre')
     year = IntegerField('Year')
-    watched = BooleanField('Watched?', validators=[DataRequired])
+    watched = BooleanField('Watched?', validators=[DataRequired()])
     my_rating = IntegerField('My Rating')
     rt_rating = IntegerField('RT Rating')
     watched_date = DateField('Date Watched')

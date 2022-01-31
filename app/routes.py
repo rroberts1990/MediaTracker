@@ -1,6 +1,6 @@
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm
-from app.models import User
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm, AddMovieForm
+from app.models import User, Movie
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
@@ -15,11 +15,44 @@ def before_request():
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():
-    return render_template('index.html', title='Home')
+    form = AddMovieForm()
+    if form.validate_on_submit():
+        movie = Movie(title=form.title.data, genre=form.genre.data, year=form.year.data,
+                      watched=form.watched.data, my_rating=form.my_rating.data, rt_rating=form.my_rating.data,
+                      watched_date=form.watched_date.data, tags=form.data)
+        db.session.add(movie)
+        db.session.commit()
+        flash(f'You have just added {form.title.data} to your list.')
+        return redirect(url_for('index'))
+    posts = [
+        {
+            'author': {'username': 'John'},
+            'record': Book('The Lies of Locke Lamora',
+                           'Scott Lynch',
+                           'Fantasy',
+                           '2006-06-27',
+                           1,
+                           95,
+                           "01-01-2015",
+                           "Gentleman Bastards")
+        },
+        {
+            'author': {'username': 'Susan'},
+            'record': Book('The Way of Kings',
+                           'Brandon Sanderson',
+                           'Fantasy',
+                           '2010-08-31',
+                           1,
+                           91,
+                           "01-01-2019",
+                           "Cosmere Stormlight Archive")
+        }
+    ]
+    return render_template('index.html', title='Home Page', form=form, post=posts)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -144,3 +177,4 @@ def unfollow(username):
         return redirect(url_for('user', username=username))
     else:
         return redirect(url_for('index'))
+
