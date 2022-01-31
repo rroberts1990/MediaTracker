@@ -178,3 +178,9 @@ def unfollow(username):
     else:
         return redirect(url_for('index'))
 
+#TODO: add redirect to login page when user clicks to add movie to their list
+@app.route('/explore')
+def explore():
+    movies = Movie.query.order_by(Movie.year.desc()).limit(20).all()
+    return render_template('explore.html', title='Explore', posts=movies)
+
