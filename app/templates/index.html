@@ -2,6 +2,31 @@
 
 {% block content %}
     <h1>Hi, {{ current_user.username }}!</h1>
-    <title>Welcome!</title>
-        <body>Here is a page with nothing on it lol</body>
+    <form action="" method="post">
+        {{% form.hidden_tag() }}
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title }}<br>
+            {{ form.genre.label }}<br>
+            {{ form.genre }}<br>
+            {{ form.year.label }}<br>
+            {{ form.year }}<br>
+            {{ form.watched.label }}<br>
+            {{ form.watched }}<br>
+            {{ form.my_rating.label }}<br>
+            {{ form.my_rating }}<br>
+            {{ form.rt_rating.label }}<br>
+            {{ form.rt_rating }}<br>
+            {{ form.watched_date.label }}<br>
+            {{ form.watched_date }}<br>
+            {{ form.tags.label }}<br>
+            {{ form.tags }}<br>
+            {% for error in form.post.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <p>User {{ current_user.username }} Watched:</p>
+    <p>Add table of movies here</p>
 {% endblock %}

@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, IntegerField, DateField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
 from app.models import User
 
@@ -48,3 +48,14 @@ class EditProfileForm(FlaskForm):
 
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')
+
+class AddMovieForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    genre = StringField('Genre')
+    year = IntegerField('Year')
+    watched = BooleanField('Watched?', validators=[DataRequired])
+    my_rating = IntegerField('My Rating')
+    rt_rating = IntegerField('RT Rating')
+    watched_date = DateField('Date Watched')
+    tags = TextAreaField('Tags')
+    submit = SubmitField('Add To List')
