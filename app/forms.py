@@ -59,3 +59,8 @@ class AddMovieForm(FlaskForm):
     watched_date = DateField('Date Watched')
     tags = TextAreaField('Tags')
     submit = SubmitField('Add To List')
+
+
+class ResetPasswordRequestForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Request Password Reset')
