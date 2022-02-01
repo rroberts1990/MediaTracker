@@ -24,7 +24,7 @@ def index():
     if form.validate_on_submit():
         movie = Movie(title=form.title.data, genre=form.genre.data, year=form.year.data,
                       watched=form.watched.data, my_rating=form.my_rating.data, rt_rating=form.my_rating.data,
-                      watched_date=form.watched_date.data, tags=form.data)
+                      watched_date=form.watched_date.data, tags=form.tags.data)
         db.session.add(movie)
         db.session.commit()
         flash(f'You have just added {form.title.data} to your list.')
@@ -191,7 +191,7 @@ def reset_password_request():
         return redirect(url_for('index'))
     form = ResetPasswordRequestForm()
     if form.validate_on_submit():
-        user.User.query.filter_by(email=form.email.data).first()
+        user = User.query.filter_by(email=form.email.data).first()
         if user:
             send_password_reset_email(user)
         flash('Check your email for the instructions to reset your password')

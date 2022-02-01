@@ -1,9 +1,4 @@
-2022-01-29 13:52:40,745 INFO: MediaTracker Startup [in /Users/rossroberts/repositories/MediaTracker/app/__init__.py:45]
-2022-01-29 14:01:18,446 INFO: MediaTracker Startup [in /Users/rossroberts/repositories/MediaTracker/app/__init__.py:45]
-2022-01-29 14:01:20,822 INFO: MediaTracker Startup [in /Users/rossroberts/repositories/MediaTracker/app/__init__.py:45]
-2022-01-29 14:01:31,432 INFO: MediaTracker Startup [in /Users/rossroberts/repositories/MediaTracker/app/__init__.py:45]
-2022-01-31 17:33:11,645 INFO: MediaTracker Startup [in /Users/rossroberts/repositories/MediaTracker/app/__init__.py:45]
-2022-01-31 17:34:15,116 ERROR: Exception on /index [GET] [in /Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py:1457]
+2022-02-01 08:35:18,485 ERROR: Exception on /reset_password_request [GET] [in /Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py:1457]
 Traceback (most recent call last):
   File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
@@ -13,42 +8,8 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/rossroberts/repositories/MediaTracker/app/routes.py", line 22, in index
-    return render_template('index.html', title='Home')
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/templating.py", line 148, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/jinja2/environment.py", line 1068, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/jinja2/environment.py", line 997, in get_template
-    return self._load_template(name, globals)
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/jinja2/environment.py", line 958, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/jinja2/loaders.py", line 137, in load
-    code = environment.compile(source, name, filename)
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/jinja2/environment.py", line 757, in compile
-    self.handle_exception(source=source_hint)
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/jinja2/environment.py", line 925, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/Users/rossroberts/repositories/MediaTracker/app/templates/index.html", line 6, in template
-    {{% form.hidden_tag() }}
-jinja2.exceptions.TemplateSyntaxError: unexpected '%'
-2022-01-31 17:37:57,202 INFO: MediaTracker Startup [in /Users/rossroberts/repositories/MediaTracker/app/__init__.py:45]
-2022-01-31 17:37:58,756 ERROR: Exception on / [GET] [in /Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py:1457]
-Traceback (most recent call last):
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/rossroberts/repositories/MediaTracker/app/routes.py", line 22, in index
-    return render_template('index.html', title='Home')
+  File "/Users/rossroberts/repositories/MediaTracker/app/routes.py", line 199, in reset_password_request
+    return render_template('reset_password_request.html', title='Reset Password', form=form)
   File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
     return _render(
   File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/templating.py", line 128, in _render
@@ -57,17 +18,17 @@ Traceback (most recent call last):
     self.environment.handle_exception()
   File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/jinja2/environment.py", line 925, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/Users/rossroberts/repositories/MediaTracker/app/templates/index.html", line 1, in top-level template code
+  File "/Users/rossroberts/repositories/MediaTracker/app/templates/reset_password_request.html", line 1, in top-level template code
     {% extends "base.html" %}
-  File "/Users/rossroberts/repositories/MediaTracker/app/templates/base.html", line 32, in top-level template code
+  File "/Users/rossroberts/repositories/MediaTracker/app/templates/base.html", line 33, in top-level template code
     {% block content %}{% endblock %}
-  File "/Users/rossroberts/repositories/MediaTracker/app/templates/index.html", line 6, in block 'content'
-    {{ form.hidden_tag() }}
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/jinja2/environment.py", line 474, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2022-01-31 17:42:06,994 INFO: MediaTracker Startup [in /Users/rossroberts/repositories/MediaTracker/app/__init__.py:45]
-2022-01-31 17:42:08,651 ERROR: Exception on / [GET] [in /Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py:1457]
+  File "/Users/rossroberts/repositories/MediaTracker/app/templates/reset_password_request.html", line 9, in block 'content'
+    {{ form.email.size(64)}}
+  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/jinja2/utils.py", line 84, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+jinja2.exceptions.UndefinedError: 'wtforms.fields.simple.StringField object' has no attribute 'size'
+2022-02-01 08:36:38,999 INFO: MediaTracker Startup [in /Users/rossroberts/repositories/MediaTracker/app/__init__.py:47]
+2022-02-01 08:36:48,549 ERROR: Exception on /reset_password_request [POST] [in /Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py:1457]
 Traceback (most recent call last):
   File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
@@ -77,24 +38,57 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/rossroberts/repositories/MediaTracker/app/routes.py", line 22, in index
-    return render_template('index.html', title='Home')
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
-    return _render(
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/templating.py", line 128, in _render
-    rv = template.render(context)
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/jinja2/environment.py", line 1291, in render
-    self.environment.handle_exception()
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/jinja2/environment.py", line 925, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/Users/rossroberts/repositories/MediaTracker/app/templates/index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/rossroberts/repositories/MediaTracker/app/templates/base.html", line 32, in top-level template code
-    {% block content %}{% endblock %}
-  File "/Users/rossroberts/repositories/MediaTracker/app/templates/index.html", line 6, in block 'content'
-    {{ form.hidden_tag() }}
-  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/jinja2/environment.py", line 474, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
+  File "/Users/rossroberts/repositories/MediaTracker/app/routes.py", line 194, in reset_password_request
+    user.User.query.filter_by(email=form.email.data).first()
+AttributeError: 'function' object has no attribute 'User'
+2022-02-01 08:38:39,292 INFO: MediaTracker Startup [in /Users/rossroberts/repositories/MediaTracker/app/__init__.py:47]
+2022-02-01 08:38:48,476 ERROR: Exception on /reset_password_request [POST] [in /Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/rossroberts/repositories/MediaTracker/app/routes.py", line 196, in reset_password_request
+    send_password_reset_email(user)
+  File "/Users/rossroberts/repositories/MediaTracker/app/email.py", line 12, in send_password_reset_email
+    token = user.get_password_reset_token()
+AttributeError: 'User' object has no attribute 'get_password_reset_token'
+2022-02-01 08:40:00,163 INFO: MediaTracker Startup [in /Users/rossroberts/repositories/MediaTracker/app/__init__.py:47]
+2022-02-01 08:40:12,148 ERROR: Exception on /reset_password_request [POST] [in /Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/rossroberts/repositories/MediaTracker/app/routes.py", line 196, in reset_password_request
+    send_password_reset_email(user)
+  File "/Users/rossroberts/repositories/MediaTracker/app/email.py", line 12, in send_password_reset_email
+    token = user.get_password_reset_token()
+  File "/Users/rossroberts/repositories/MediaTracker/app/models.py", line 51, in get_password_reset_token
+    return jwt.encode(
+AttributeError: module 'jwt' has no attribute 'encode'
+2022-02-01 08:42:20,248 INFO: MediaTracker Startup [in /Users/rossroberts/repositories/MediaTracker/app/__init__.py:47]
+2022-02-01 08:42:28,260 ERROR: Exception on /reset_password_request [POST] [in /Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py:1457]
+Traceback (most recent call last):
+  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/rossroberts/repositories/MediaTracker/env/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/rossroberts/repositories/MediaTracker/app/routes.py", line 196, in reset_password_request
+    send_password_reset_email(user)
+  File "/Users/rossroberts/repositories/MediaTracker/app/email.py", line 13, in send_password_reset_email
+    send_email('[MediaTracker] Reset Your Password',
+TypeError: send_email() got an unexpected keyword argument 'html_body'
+2022-02-01 08:43:07,694 INFO: MediaTracker Startup [in /Users/rossroberts/repositories/MediaTracker/app/__init__.py:47]

@@ -21,7 +21,7 @@
             {{ form.watched_date }}<br>
             {{ form.tags.label }}<br>
             {{ form.tags }}<br>
-            {% for error in form.post.errors %}
+            {% for error in form.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
