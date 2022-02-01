@@ -1,6 +1,7 @@
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm, AddMovieForm
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm, AddMovieForm, ResetPasswordRequestForm
 from app.models import User, Movie
+from app.email import send_password_reset_email
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
@@ -184,3 +185,15 @@ def explore():
     movies = Movie.query.order_by(Movie.year.desc()).limit(20).all()
     return render_template('explore.html', title='Explore', posts=movies)
 
+@app.route('/reset_password_request', methods=['GET', 'POST'])
+def reset_password_request():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = ResetPasswordRequestForm()
+    if form.validate_on_submit():
+        user.User.query.filter_by(email=form.email.data).first()
+        if user:
+            send_password_reset_email(user)
+        flash('Check your email for the instructions to reset your password')
+        return redirect(url_for('login'))
+    return render_template('reset_password_request.html', title='Reset Password', form=form)
