@@ -1,7 +1,6 @@
 from flask import render_template
 from app import db
 from app.errors import bp
-from flask_mail import Mail, Message
 
 @bp.app_errorhandler(404)
 def not_found_error(error):
@@ -10,10 +9,5 @@ def not_found_error(error):
 @bp.app_errorhandler(500)
 def internal_error(error):
     db.session.rollback()
-    mail=Mail(app)
-    msg=Message(error, recipients=['ross123roberts@gmail.com'])
-    msg.body=error
-    msg.html=f'<p>{error}</p>'
-    mail.send(msg)
     return render_template('500.html'), 500
 
