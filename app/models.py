@@ -83,8 +83,9 @@ class Book(db.Model):
 class Screen(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120))
-    genre = db.Column(db.String(120))
     year = db.Column(db.Integer)
+    genre = db.Column(db.String(120))
+    director = db.Column(db.String(120))
     watched = db.Column(db.Boolean)
     my_rating = db.Column(db.Integer)
     rt_rating = db.Column(db.Integer)

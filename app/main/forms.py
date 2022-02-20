@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, SubmitField, TextAreaField, IntegerField, DateField
 from wtforms.validators import DataRequired, ValidationError, Length
-from app.main.models import User
+from app.models import User
 
 
 
@@ -26,8 +26,9 @@ class EmptyForm(FlaskForm):
 
 class AddMovieForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
-    genre = StringField('Genre')
     year = IntegerField('Year')
+    genre = StringField('Genre')
+    director = StringField('Director')
     watched = BooleanField('Watched?', validators=[DataRequired()])
     my_rating = IntegerField('My Rating')
     rt_rating = IntegerField('RT Rating')
