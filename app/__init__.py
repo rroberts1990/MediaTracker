@@ -24,7 +24,7 @@ bootstrap = Bootstrap(app)
 moment = Moment(app)
 babel = Babel(app)
 
-from app import routes, models
+from app.main import routes
 from app.errors import bp as errors_bp
 app.register_blueprint(errors_bp)
 from app.auth import bp as auth_bp
