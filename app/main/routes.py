@@ -34,13 +34,13 @@ def index():
         {
             'author': {'username': 'John'},
             'record': MovieObject('Terminator 2',
-                            '1991'
+                            '1991',
                            'Sci Fi',
                            'James Cameron',
                            'yes',
                            96,
                            93,
-                           None,
+                           "2020-01-01",
                            "Time Travel")
         }
     ]

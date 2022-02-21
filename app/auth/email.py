@@ -3,7 +3,7 @@ from app.email import send_email
 
 def send_password_reset_email(user):
     token = user.get_password_reset_token()
-    send_email('[MediaTracker] Reset Your Password',
+    send_email('[mediatracker] Reset Your Password',
                sender=current_app.config['MAIL_DEFAULT_SENDER'],
                recipients=[user.email],
                text_body=render_template('email/reset_password.txt',

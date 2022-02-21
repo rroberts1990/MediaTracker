@@ -1,11 +1,11 @@
 FROM ubuntu:latest
 LABEL maintainer="rroberts"
 
-COPY . /opt/StockTracker/
-#RUN chmod +x boot.sh
+RUN useradd mediatracker
 
-WORKDIR /opt/StockTracker/
-RUN mkdir /db
+COPY . /home/mediatracker
+
+WORKDIR /home/mediatracker
 
 # Install Python
 RUN \
@@ -19,9 +19,13 @@ RUN \
     pip3 install wheel setuptools && \
     pip3 install -r requirements.txt
 
+
+RUN chmod +x boot.sh
+
+RUN chown -R mediatracker:mediatracker ./
+USER mediatracker
+
 ENV FLASK_APP=media_tracker.py
-ENV SECRET_KEY=my-secret-key
-ENV DATABASE_URL=sqlite:///mediatracker.db
 
 EXPOSE 5000
-#ENTRYPOINT ["./boot.sh"]
+ENTRYPOINT ["./boot.sh"]
