@@ -23,6 +23,8 @@ class User(UserMixin, db.Model):
                                secondaryjoin=(followers.c.followed_id == id), backref=db.backref('followers', lazy='dynamic')
                                , lazy='dynamic')
 
+    __searchable__ = ['username', 'email']
+
     def __repr__(self):
         return f'<User {self.username}>'
 
@@ -77,6 +79,7 @@ class Book(db.Model):
     rating = db.Column(db.Integer, index=True)
     complete_date = db.Column(db.Date, index=True)
     tags = db.Column(db.String(128))
+    __searchable__ = ['title', 'author', 'genre']
 
     def __repr__(self):
         return f'<Book {self.title}>'
@@ -92,6 +95,7 @@ class Screen(db.Model):
     rt_rating = db.Column(db.Integer)
     watched_date = db.Column(db.Date)
     tags = db.Column(db.String(120))
+    __searchable__ = ['title', 'genre', 'year', 'director']
 
 
 class Movie(Screen):
