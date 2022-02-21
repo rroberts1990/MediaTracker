@@ -1,8 +1,8 @@
-"""followers
+"""users table
 
-Revision ID: b92fae8a8cfd
-Revises: 8b955a030500
-Create Date: 2022-01-29 14:01:20.847533
+Revision ID: b17437155b26
+Revises: 
+Create Date: 2022-02-21 13:47:21.014298
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'b92fae8a8cfd'
-down_revision = '8b955a030500'
+revision = 'b17437155b26'
+down_revision = None
 branch_labels = None
 depends_on = None
 
@@ -36,8 +36,9 @@ def upgrade():
     op.create_table('screen',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=120), nullable=True),
-    sa.Column('genre', sa.String(length=120), nullable=True),
     sa.Column('year', sa.Integer(), nullable=True),
+    sa.Column('genre', sa.String(length=120), nullable=True),
+    sa.Column('director', sa.String(length=120), nullable=True),
     sa.Column('watched', sa.Boolean(), nullable=True),
     sa.Column('my_rating', sa.Integer(), nullable=True),
     sa.Column('rt_rating', sa.Integer(), nullable=True),

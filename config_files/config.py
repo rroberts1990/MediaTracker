@@ -8,7 +8,7 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'sqlite:///' + os.path.join('../app/db/mediatracker.db')
+        'sqlite:///' + os.path.join('../app/mediatracker.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER = "smtp.sendgrid.net" #os.environ.get('MAIL_SERVER')
     MAIL_PORT = 587 #int(os.environ.get('MAIL_PORT') or 25)

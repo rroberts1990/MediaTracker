@@ -9,6 +9,7 @@ from datetime import datetime
 
 MovieObject = namedtuple('Movie', 'title year genre director watched my_rating rt_rating watched_date tags')
 
+
 @bp.before_app_request
 def before_request():
     if current_user.is_authenticated:
