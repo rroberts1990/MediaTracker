@@ -2,15 +2,19 @@
 
 {% block app_content %}
     <h1>Hi, {{ current_user.username }}!</h1>
+    <table><caption>You Watched:</caption></table>
+    <thead>
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
             {{ form.title.label }}<br>
             {{ form.title }}<br>
-            {{ form.genre.label }}<br>
-            {{ form.genre }}<br>
             {{ form.year.label }}<br>
             {{ form.year }}<br>
+            {{ form.genre.label }}<br>
+            {{ form.genre }}<br>
+            {{ form.director.label }}<br>
+            {{ form.director }}<br>
             {{ form.watched.label }}<br>
             {{ form.watched }}<br>
             {{ form.my_rating.label }}<br>
@@ -27,6 +31,4 @@
         </p>
         <p>{{ form.submit() }}</p>
     </form>
-    <p>User {{ current_user.username }} Watched:</p>
-    <p>Add table of movies here</p>
 {% endblock %}

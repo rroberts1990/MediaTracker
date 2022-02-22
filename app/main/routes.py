@@ -30,21 +30,7 @@ def index():
         db.session.commit()
         flash(f'You have just added {form.title.data} to your list.')
         return redirect(url_for('main.index'))
-    posts = [
-        {
-            'author': {'username': 'John'},
-            'record': MovieObject('Terminator 2',
-                            '1991',
-                           'Sci Fi',
-                           'James Cameron',
-                           'yes',
-                           96,
-                           93,
-                           "2020-01-01",
-                           "Time Travel")
-        }
-    ]
-    return render_template('index.html', title='Home Page', form=form, post=posts)
+    return render_template('index.html', title='Home Page', form=form)
 
 #TODO: add redirect to login page when user clicks to add movie to their list
 @bp.route('/explore')
