@@ -25,7 +25,8 @@ RUN chmod +x boot.sh
 RUN chown -R mediatracker:mediatracker ./
 USER mediatracker
 
-ENV FLASK_APP=media_tracker.py
+ENV FLASK_APP=mediatracker.py
+ENV PYTHONPATH=/home/mediatracker
 
 EXPOSE 5000
 ENTRYPOINT ["./boot.sh"]
