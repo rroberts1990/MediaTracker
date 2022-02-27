@@ -114,3 +114,5 @@ def search():
     prev_url = url_for('main.search', q=g.search_form.q.data, page=page-1) \
         if page > 1 else None
     return render_template('search.html', title='Search', movies= movies, next_url=next_url, prev_url=prev_url)
+
+
